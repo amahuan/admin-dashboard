@@ -14,18 +14,24 @@ html {
     display:grid;
     flex-direction: column;
     height: 100vh;
-    grid-template: auto 4fr/ 1fr 4fr;
+    grid-template: 1fr 3fr/ 1fr 4fr;
+    grid-template-areas:
+    "sidebar header"
+    "sidebar main";
 }
 
 .header {
     display:grid;
-    grid-area: 1 / 2 / 2 / -1;
+    grid-area: header;
     background-color:var(--green);
     padding: 0px 50px;
     align-content: center;
-    /* height: 15vh; */
     padding-top: 20px;
+    box-shadow: 0 5px 5px #bec2c7;
+    z-index: 1;
 }
+
+
 
 .upper {
     display: grid;
@@ -46,7 +52,7 @@ form {
     display: flex;
     flex-direction: row;
     align-items: center;
-    flex: 25em;
+    flex: 25rem;
   }
 
   input {
@@ -83,7 +89,7 @@ form {
     align-items: center;
     justify-content: flex-end;
     font-size: 30px;
-    padding: 0 50px;
+    padding: 0 0;
 }
 
 .account > i {
@@ -100,7 +106,7 @@ form {
 }
 
 .account > h3 {
-    font-size: 16px;
+    font-size: 1.2rem;
     padding-left: 3rem;
 }
 
@@ -109,7 +115,6 @@ form {
     flex: 1;
     justify-content: space-between;
     align-items: center;
-    grid-template-columns: 3fr 2fr;
 }
 
 .profile-info {
@@ -133,8 +138,8 @@ form {
     display: grid;
     flex-direction: column;
     grid-template-columns: 1fr 3fr;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 #ender-profile {
@@ -143,10 +148,10 @@ form {
 }
 
 .profile-info #intro {
-    font-size: 18px;
+    font-size: 1rem;
 }
 .profile-info #account-name {
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 800;
 }
 
@@ -159,7 +164,7 @@ form {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 50px;
+    padding: 0px;
     gap:3rem;
 }
 
@@ -178,28 +183,27 @@ button:hover {
 }
 
 .sidebar {
-    display:grid;
-    grid-area: 1 / 1 / -1 / 2;
+    grid-area: sidebar;
     background-color: var(--blue);
-    padding: 20px 20px;
-    grid-template-rows: auto auto 1fr;
+    padding: 2rem 2rem;
 }
 
 .logo {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 10px;
+    gap: 1rem;
 }
 
 .logo > img {
-    height: 100px;
-    width: 100px;
+    height: 75px;
+    width: 75px;
     border-color: black;
     border-style: solid;
 }
 
 .logo > h1 {
-    font-size: 40px;
+    font-size: 2rem;
     margin: 0;
     color: white;
     align-content: center;
@@ -207,72 +211,49 @@ button:hover {
 
 ul {
     list-style-type: none;
-    font-size: 25px;
+    font-size: 1.5rem;
     padding: 0px;
     display: grid;
-    margin-top: 100px;
+    margin-top: 8rem;
 }
 
 .links>ul>li>i {
-    position: relative;
-    /* border-color: red;
-    border-style: solid; */
     width: 35px;
     height: 35px;
     color:white;
-    /* padding-bottom: 20px; */
 }
 
 ul > li {
-    padding-bottom: 20px;
+    padding-bottom: 1.5rem;
 }
 
 a {
     text-decoration: none;
     color: white;
-    padding: 20px;
+    padding: 1.5rem;
 }
 
 a:hover {
     font-weight: 800;
 }
 
-.links {
-    display: grid;
-    flex-direction: column;
-    font-size: 20px;
-}
-
-.links > i {
-    size: 18px;
-    color: blue;
-}
-
 .content {
     display: grid;
+    grid-area: main;
+    padding: 1rem;
     grid-template-columns: 3fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    overflow: auto;
-    padding: 10px;
     gap: 2rem;
 }
 
-.projects {
-    display:grid;
-    padding: 10px;
-    grid-template-rows: auto 1fr 1fr;
-    /* grid-area: 2 / 2 / 5 / -1; */
-}
-
 .projects h3, .announcements h3, .trending h3 {
-    font-size: 25px;
+    font-size: 1.2rem;
 }
 
 .cards {
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-template-rows: repeat(2, 1fr);
-    gap: 20px;
+    gap: 1rem;
 }
 
 .cards .card {
@@ -282,7 +263,7 @@ a:hover {
     border-color: gray;
     border-style: solid;
     text-align:left;
-    padding: 25px;
+    padding: 1.5rem;
     border-width: 1px;
     border-radius: 8px;
     border-left: 10px solid var(--pink);
@@ -300,8 +281,8 @@ a:hover {
 }
 
 .cards .icons i {
-    padding: 10px;
-    font-size: 20px;
+    padding: 0 0.8rem;
+    font-size: 1.2rem;
 }
 
 .card>.icons>i:hover {
@@ -312,13 +293,19 @@ a:hover {
 
 .cards h5, .announcement > h5, .trending > h5 {
     margin:0;
-    font-size: 18px;
+    font-size: 1rem;
 }
 
 .card > p {
-    font-size: 18px;
+    font-size: 1rem;
     color: black;
     text-align: left;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.new-card {
+    display:none;
 }
 
 .announcements {
@@ -327,13 +314,12 @@ a:hover {
 }
   
 .announcement {
-    width: 25ch;
     padding: 1rem 0;
     text-align: left;
 }
 
 .announcements > ul, .trending > ul {
-      margin-top: 0;
+    margin-top: 0;
 }
   
 .announcement:first-child {
@@ -353,11 +339,11 @@ a:hover {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
     overflow: hidden;
-    font-size: 14px;
+    font-size: 0.8rem;
 }
 
 .announcements, .trending {
-    padding: 10px;
+    padding: 1rem;
 }
 
 .announcements .card {
@@ -367,36 +353,31 @@ a:hover {
     border-color: gray;
     border-style: solid;
     text-align: center;
-    padding: 20px;
+    padding: 1rem;
     border-width: 1px;
     border-radius: 8px;
+    margin-bottom: 0;
 }
 
 .trending .card {
     display: grid;
-    flex-direction: column;
     background-color: white;
     border-color: gray;
     border-style: solid;
     text-align: center;
-    padding: 20px;
+    padding: 1rem;
     border-width: 1px;
     border-radius: 8px;
 }
 
-.trending {
-    display: grid;
-    width: 25ch;
-} 
-
 .trend {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
     align-items: center;
     gap: 1rem;
     cursor: pointer;
     padding-top: 0px;
     padding-bottom: 0px;
-    width: 25ch;
     text-align: left;
 }
   
@@ -407,15 +388,20 @@ a:hover {
 .trend .picture img {
     width: 50px;
     height: 50px;
+    border-radius: 50%;
 }
-  
+
+.trend .picture img:hover {
+    transform: scale(2);
+}
+
 .trend .account {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     font-size: 0.9rem;
-    padding-left: 5px;
+    padding-left: 0.5rem;
 }
   
 .trend .username {
